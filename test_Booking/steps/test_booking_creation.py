@@ -33,7 +33,7 @@ def verify_success_response(context):
 
     # Unpack the response into status code, response dictionary, and error
     status_code, response_dict, error = response
-    expected_status = Response.StatusCode.HTTP_OK  # Define the expected HTTP status code
+    expected_status = Response.StatusCode.HTTP_OK  
 
     logger.info("Received status code: %d", status_code)
 

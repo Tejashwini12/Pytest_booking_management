@@ -1,6 +1,5 @@
 import logging
 from behave import when 
-from test_Booking.scr.Utils.Assertion.assertion import Assertion
 from test_Booking.scr.Utils.RestDrivers.Response import Response
 
 # Configure logging

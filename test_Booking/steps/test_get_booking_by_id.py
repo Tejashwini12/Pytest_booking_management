@@ -2,6 +2,7 @@ from behave import given, when, then
 from test_Booking.scr.Management.booking_management import BookingManagement
 from test_Booking.scr.Utils.RestDrivers.Response import Response
 from test_Booking.scr.Utils.Assertion.assertion import Assertion
+
 import logging 
 
 # Configure logging
@@ -50,9 +51,12 @@ def step_then_receive_booking_details(context):
     status_code, response_dict, error = response
     expected_status = Response.StatusCode.HTTP_OK  
 
-    # Validate the status code
-    if status_code != expected_status:
-        raise Exception(f"Expected status code {expected_status} but got {status_code}")
+    # Assert the response status code matches the expected status
+    Assertion.response_status_should_be_equal(
+        actual_status=status_code,
+        exp_status=expected_status,
+        response=response_dict
+    )
 
     # Validate other expected fields in the response
     expected_fields = ['firstname', 'lastname', 'totalprice', 'depositpaid', 'bookingdates']  # Add any other expected fields

@@ -1,7 +1,7 @@
 import logging
-from behave import given, when, then  # type: ignore
-from test_Booking.scr.Utils.Assertion.assertion import Assertion
+from behave import given, when, then
 from test_Booking.scr.Utils.RestDrivers.Response import Response
+from test_Booking.scr.Utils.Assertion.assertion import Assertion
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -32,8 +32,14 @@ def step_verify_response(context):
 
     logger.info("Validating response status code: %d", status_code)  # Log the status code for verification
     
+    expected_status = Response.StatusCode.HTTP_CREATED
+
     # Assert that the status code is 201
-    assert status_code == Response.StatusCode.HTTP_CREATED, f'Expected status code 201 but got {status_code}'
+    Assertion.response_status_should_be_equal(
+        actual_status=status_code,
+        exp_status=expected_status,
+        response=response_body
+    )
     
     logger.info("Validating response body: %s", response_body)  # Log the response body for verification
     
