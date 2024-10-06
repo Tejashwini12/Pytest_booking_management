@@ -10,8 +10,8 @@ This project utilizes the Behave framework for Behavior-Driven Development (BDD)
 To get started, clone this repository and install the required dependencies:
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone [<repository-url>](https://github.com/Tejashwini12/Hotel_Booking_Management.git)
+cd test_Booking
 pip install -r requirements.txt
 ```
 
