@@ -1,0 +1,6 @@
+pytest
+pytest-xdist
+requests
+allure-pytest
+behave
+allure-behave
